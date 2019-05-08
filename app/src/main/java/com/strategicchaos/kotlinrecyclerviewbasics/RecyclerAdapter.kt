@@ -1,5 +1,6 @@
 package com.strategicchaos.kotlinrecyclerviewbasics
 
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +49,15 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             itemTitle = itemView.findViewById(R.id.item_title)
             itemDetail = itemView.findViewById(R.id.item_detail)
 
+            itemView.setOnClickListener { v: View ->
+                var position: Int = getAdapterPosition()
+                Snackbar.make(v, "Click detected on item $position",
+                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+            }
+
         }
+
     }
+
+
 }
